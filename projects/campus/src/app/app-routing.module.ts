@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent as PublicHomeComponent } from './public/home/home.component';
 import { HomeDashboardComponent } from './public/home-dashboard/home-dashboard.component';
 import { RegisterComponent } from './public/register/register.component';
 import { SigninComponent } from './public/signin/signin.component';
@@ -8,15 +7,34 @@ import { AboutComponent } from './public/about/about.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { adminGuardGuard } from './service/admin-guard.guard';
 import { AdminRegisterComponent } from './Admin/admin-register/admin-register.component';
-import { HomeComponent as AdminHomeComponent } from './Admin/home/home.component';
+import { ApplyjobComponent } from './public/applyjob/applyjob.component';
+import { JobpostComponent } from './company/jobpost/jobpost.component';
+import { CompanyHomeComponent } from './company/company-home/company-home.component';
+import { CompanyDashboardComponent } from './company/company-dashboard/company-dashboard.component';
+import { CandidatesComponent } from './company/candidates/candidates.component';
+import { companyGuard } from './service/company.guard';
+import { MyJobComponent } from './company/my-job/my-job.component';
+import { MyProfileComponent } from './company/my-profile/my-profile.component';
+import { CVComponent } from './company/cv/cv.component';
+import { CollegeProfileComponent } from './company/college-profile/college-profile.component';
+import { studentGuard } from './service/student.guard';
+import { StudentHomeComponent } from './Student/student-home/student-home.component';
+import { StudentDashboardComponent } from './Student/student-dashboard/student-dashboard.component';
+import { ViewjobComponent } from './Student/viewjob/viewjob.component';
+import { StudentProfileComponent } from './Student/student-profile/student-profile.component';
+import { StudentListComponent } from './company/student-list/student-list.component';
+import { CompanyListComponent } from './Student/company-list/company-list.component';
+import { ApplicationStatusComponent } from './Student/application-status/application-status.component';
+import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+import { PublicHomeComponent } from './public/public-home/public-home.component';
 
 const routes: Routes = [
 
   {
-    path: '',
+    path: 'public',
     component: PublicHomeComponent,
     children: [
-      { path: "", component: HomeDashboardComponent }
+      { path: '', component: HomeDashboardComponent }
     ]
   },
   {
@@ -32,6 +50,14 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
+    path: 'applyjob',
+    component: ApplyjobComponent
+  },
+  {
+    path:'jobpost',
+    component:JobpostComponent
+  },
+  {
     path: 'admin',
     component: AdminHomeComponent,
     canActivate: [adminGuardGuard],
@@ -39,7 +65,86 @@ const routes: Routes = [
       {
         path: '',
         component: AdminDashboardComponent
+      },
+      {
+         path:'jobpost',
+         component:JobpostComponent
+      },
+      {
+        path:'register',
+        component:AdminRegisterComponent
       }
+    ]
+  },
+  {
+    path:'company',
+    component:CompanyHomeComponent,
+    canActivate: [companyGuard],
+    children: [
+      {
+        path: '',
+        component: CompanyDashboardComponent
+      },
+      {
+        path:'jobpost',
+        component:JobpostComponent
+     },
+     {
+      path:'candidates',
+      component:CandidatesComponent
+     },
+     {
+      path:'myjob',
+      component:MyJobComponent
+     },
+     {
+      path:'myprofile',
+      component:MyProfileComponent
+     },
+     {
+      path:'cv',
+      component:CVComponent
+     },
+     {
+      path:'college-profile',
+      component:CollegeProfileComponent
+     },
+     {
+      path:'studentlist',
+      component:StudentListComponent
+     }
+    ]
+  },
+  {
+    path:'student',
+    component:StudentHomeComponent,
+    canActivate: [studentGuard],
+    children: [
+      {
+        path: '',
+        component:StudentDashboardComponent
+       
+      },
+      {
+        path:'viewjob',
+        component:ViewjobComponent
+       },
+       {
+        path:'myprofile',
+        component:StudentProfileComponent
+       },
+       {
+        path:'collegeprofile',
+        component:AboutComponent
+       },
+       {
+        path:'companylist',
+        component:CompanyListComponent
+       },
+       {
+        path:'applicationstatus',
+        component:ApplicationStatusComponent
+       }
     ]
   }
 

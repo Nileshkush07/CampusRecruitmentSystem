@@ -1,0 +1,42 @@
+.bgg{
+    background-image: url(../../../assets/cmpbg.jpg);
+    height: 100%;
+    /* / Center and scale the image nicely / */
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 219%;
+    margin-left: -15%;
+    margin-right: 6%;
+    margin-top: -2%;
+    height: 550%;
+} 
+.ml{
+    margin-left: -301px;
+}
+/* .style {
+    width: 153%;
+    margin-left: -37%;
+    margin-right: 6%;
+    margin-top: -12%;
+    height: 550%;
+} */
+.text{
+    text-align: center;
+  
+}
+.element {
+    margin-top: 8%;
+}
+
+.texta{
+    margin-left: 7%;
+}
+
+    .body {
+      background-image: url(../../../assets/cmpbg.jpg);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+   
