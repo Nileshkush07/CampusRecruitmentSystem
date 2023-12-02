@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent {
-
-  username:string='';
-  password:string=''; 
+export class SigninComponent implements OnInit {
   snack: any;
+  
 
 
+  constructor(private login:LoginService,private router:Router){}
 
-  constructor(){}
-
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+  
   loginData={
-    username:'',
-    password:''
+    username:"",
+    password:""
   };
 
   formSubmit(){
@@ -29,54 +32,57 @@ if(this.loginData.username.trim()=='' || this.loginData.username==null){
         duration:3000,
       });
       return ;
-    } }
-  }
+    } 
        
-// }
-// console.log(this.loginData);
-// console.log(this.login.generateToken(this.loginData)+"fghjk");
+}
+console.log(this.loginData);
+console.log(this.login.generateToken(this.loginData)+"fghjk");
 
-// this.login.generateToken(this.loginData).subscribe(
-//   (data:any)=>{
-//    console.log('success');
-//    console.log(data);
+this.login.generateToken(this.loginData).subscribe(
+  (data:any)=>{
+   console.log('success');
+   console.log(data);
    
-//    //login
+   //login
 
-//       this.login.loginUser(data.token);
+      this.login.loginUser(data.token);
 
-//       this.login.getCurrentUser().subscribe(
-//         (user:any)=>{
-//           this.login.setUser(user);
-//           console.log(user);
+      this.login.getCurrentUser().subscribe(
+        (user:any)=>{
+          this.login.setUser(user);
+          console.log(user);
 
-//            //redirect admin dashboard
-//            //redirect normal dashboard
+           //redirect admin dashboard
+           //redirect normal dashboard
 
-//            if(this.login.getUserRole()=='ADMIN'){
-//             // window.location.href='/admin';
-//             this.router.navigate(['admin'])
-//             this.login.loginStatusSubject.next(true);
-//            }else if(this.login.getUserRole()=='NORMAL'){
-//             //window.location.href='/user-dashboard';
-//             this.router.navigate(['user-dashboard/0'])
-//             this.login.loginStatusSubject.next(true);
-//            }else{
-//                 this.login.logout();
+           if(this.login.getUserRole()=='ADMIN'){
+            // window.location.href='/admin';
+            this.router.navigate(['admin'])
+            this.login.loginStatusSubject.next(true);
+           }else if(this.login.getUserRole()=='STUDENT'){
+            //window.location.href='/user-dashboard';
+            this.router.navigate(['student/0'])
+            this.login.loginStatusSubject.next(true);
+           }else if(this.login.getUserRole()=='COMPANY'){
+             //window.location.href='/companydashboard';
+              this.router.navigate(['company/0'])
+              this.login.loginStatusSubject.next(true);
+           }
+           else{
+                this.login.logout();
                 
-//            }
-//         }
-//       );
+           }
+        }
+      );
 
-//   },
-//   (error: any)=> {
-//     console.log('Error !');
-//     console.log(error);
-//     this.snack.open('Invalid details !! try again', '',{
-//       duration:3000,
-//     });
-//   }
-//   );
-//   }
-
+  },
+  (error)=> {
+    console.log('Error !');
+    console.log(error);
+    this.snack.open('Invalid details !! try again', '',{
+      duration:3000,
+    });
+  }
+  );
+  }
 }

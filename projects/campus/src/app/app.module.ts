@@ -51,6 +51,7 @@ import { AdminCompanyComponent } from './Admin/admin-company/admin-company.compo
 import { AdminJobsComponent } from './Admin/admin-jobs/admin-jobs.component';
 import { AdminProfileComponent } from './Admin/admin-profile/admin-profile.component';
 import { AdminCVmanageComponent } from './Admin/admin-cvmanage/admin-cvmanage.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -109,7 +110,8 @@ import { AdminCVmanageComponent } from './Admin/admin-cvmanage/admin-cvmanage.co
     AdminCompanyComponent,
     AdminJobsComponent,
     AdminProfileComponent,
-    AdminCVmanageComponent
+    AdminCVmanageComponent,
+    
   
 
 
@@ -122,8 +124,8 @@ import { AdminCVmanageComponent } from './Admin/admin-cvmanage/admin-cvmanage.co
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
-
+    MatButtonModule,
+    FormsModule
 
 
 
