@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   ngOnInit(): void {
-    this.loadCssFile("../assets/css/style1.css")
+    this.loadCssFile("../assets/css/style.css")
   }
   title = 'Campus';
 

@@ -27,6 +27,11 @@ import { CompanyListComponent } from './Student/company-list/company-list.compon
 import { ApplicationStatusComponent } from './Student/application-status/application-status.component';
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
 import { PublicHomeComponent } from './public/public-home/public-home.component';
+import { AdminStudentComponent } from './Admin/admin-student/admin-student.component';
+import { AdminCompanyComponent } from './Admin/admin-company/admin-company.component';
+import { AdminJobsComponent } from './Admin/admin-jobs/admin-jobs.component';
+import { AdminProfileComponent } from './Admin/admin-profile/admin-profile.component';
+import { AdminCVmanageComponent } from './Admin/admin-cvmanage/admin-cvmanage.component';
 
 const routes: Routes = [
 
@@ -73,6 +78,26 @@ const routes: Routes = [
       {
         path:'register',
         component:AdminRegisterComponent
+      },
+      {
+        path:'studentlist',
+        component:AdminStudentComponent
+      },
+      {
+        path:'allcompany',
+        component:AdminCompanyComponent
+      },
+      {
+        path:'jobs',
+        component:AdminJobsComponent
+      },
+      {
+        path:'profile',
+        component:AdminProfileComponent
+      },
+      {
+        path:'cvmanage',
+        component:AdminCVmanageComponent
       }
     ]
   },
